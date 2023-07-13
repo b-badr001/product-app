@@ -25,6 +25,9 @@ export class ProductsComponent implements OnInit{
   }
   
   searchProducts(){
+    /*this.appState.setProductState({
+      status :"LOADING"
+    });*/
     this.ProductService.searchProducts(this.appState.productsState.keyword,
       this.appState.productsState.currentPage, 
       this.appState.productsState.pageSize)
@@ -69,7 +72,7 @@ export class ProductsComponent implements OnInit{
     this.ProductService.deleteProduct(product).subscribe({
       next:value => {
         //this.getProducts();
-        let products = this.appState.productsState.products.filter((p:any)=>p.id!==product.id);
+        /*let products = this.appState.productsState.products.filter((p:any)=>p.id!==product.id);
         if(products.length==0 ){
           --this.appState.productsState.currentPage;
           if(this.appState.productsState.currentPage==0){
@@ -78,7 +81,9 @@ export class ProductsComponent implements OnInit{
           this.searchProducts()
         } else{
           let totalCount=this.appState.productsState.totalPages-1;
-        }
+        }*/
+        this.searchProducts();
+
       }
     })
   }

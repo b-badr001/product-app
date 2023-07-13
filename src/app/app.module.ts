@@ -17,6 +17,7 @@ import { AppHttpInterceptor } from './services/app-http.interceptor';
 import { AppErrorsComponent } from './app-errors/app-errors.component';
 import { LoginComponent } from './login/login.component';
 import { AdminTemplateComponent } from './admin-template/admin-template.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminTemplateComponent } from './admin-template/admin-template.componen
     NavbarComponent,
     AppErrorsComponent,
     LoginComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,

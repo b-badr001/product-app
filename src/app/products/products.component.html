@@ -22,21 +22,21 @@
                     <tr *ngFor="let product of appState.productsState.products">
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
-                        <td>
+                        <td *ngIf="appState.authState.roles.includes('ADMIN')">
                             <button 
                                 (click)="handleCheckProduct(product)"
                                 class="btn btn-outline-success">
                                 <i [class]="product.checked ? 'bi bi-check':'bi bi-circle'"></i>
                             </button>
                         </td>
-                        <td>
+                        <td *ngIf="appState.authState.roles.includes('ADMIN')">
                             <button 
                                 (click)="handleEditProduct(product)"
                                 class="btn btn-outline-success">
                                 <i class="bi bi-pencil"></i>
                             </button>
                         </td>
-                        <td>
+                        <td *ngIf="appState.authState.roles.includes('ADMIN')">
                             <button 
                                 (click)="handleDeleteProduct(product)"
                                 class="btn btn-outline-danger">

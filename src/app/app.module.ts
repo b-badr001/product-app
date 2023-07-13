@@ -10,13 +10,17 @@ import { HttpClientModule } from  '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    NewProductComponent
+    NewProductComponent,
+    EditProductComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-body">
             <div class="card-body">
-                <input type="text" [(ngModel)]="keyword">
+                <input type="text" [(ngModel)]="appState.productsState.keyword">
                 <button 
                     (click) = "searchProducts()"
-                    class="btn btn-outline-info">
+                    class="btn btn-outline-info ms-1">
                     Search
                     <i class="bi bi-search"></i>
                 </button>
@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let product of products">
+                    <tr *ngFor="let product of appState.productsState.products">
                         <td>{{product.name}}</td>
                         <td>{{product.price}}</td>
                         <td>
@@ -27,6 +27,13 @@
                                 (click)="handleCheckProduct(product)"
                                 class="btn btn-outline-success">
                                 <i [class]="product.checked ? 'bi bi-check':'bi bi-circle'"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button 
+                                (click)="handleEditProduct(product)"
+                                class="btn btn-outline-success">
+                                <i class="bi bi-pencil"></i>
                             </button>
                         </td>
                         <td>
@@ -39,6 +46,16 @@
                     </tr>
                 </tbody>
             </table>
+            <ul class="nav nav-pills">
+                <li *ngFor="let page of [].constructor(this.appState.productsState.totalPages); let i=index">
+                    <button 
+                        (click)="handleGotoPage(i+1)"
+                        [ngClass]="appState.productsState.currentPage == (i+1) ? 'btn btn-success m-1':'btn btn-outline-success m-1'"
+                    >
+                        {{(i+1)}}
+                    </button>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
